@@ -152,6 +152,7 @@ int sound_device_play_music(const char *filename, int volume_pct)
                 data.music = 0;
                 SDL_LogWarn(SDL_LOG_CATEGORY_APPLICATION, "Error playing music file '%s'. Reason: %s", filename, Mix_GetError());
             } else {
+                SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Playing music file '%s' at volume %d", filename, volume_pct);
                 sound_device_set_music_volume(volume_pct);
             }
         }

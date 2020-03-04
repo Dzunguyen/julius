@@ -82,6 +82,7 @@ void sound_music_play_editor(void)
     }
 }
 
+#include "core/log.h"
 void sound_music_update(int force)
 {
     if (data.next_check && !force) {
@@ -89,6 +90,7 @@ void sound_music_update(int force)
         return;
     }
     if (!setting_sound(SOUND_MUSIC)->enabled) {
+        log_info("Music is disabled, not playing music", 0, 0);
         return;
     }
     int track;
@@ -111,6 +113,7 @@ void sound_music_update(int force)
     }
 
     if (track == data.current_track) {
+        log_info("Determined music track is the same as before, not updating:", 0, track);
         return;
     }
 
