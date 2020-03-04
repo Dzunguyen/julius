@@ -58,6 +58,11 @@ void sound_device_open(void)
         }
     } else {
         log_error("SOUND: not initialized, reason:", Mix_GetError(), 0);
+        int max = SDL_GetNumAudioDevices(0);
+        log_info("SOUND: number of audio devices:", 0, max);
+        for (int i = 0; i < max; i++) {
+            log_info("SOUND: audio device:", SDL_GetAudioDeviceName(i, 0), 0);
+        }
     }
 }
 
