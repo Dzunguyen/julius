@@ -57,7 +57,7 @@ void sound_device_open(void)
             data.channels[i].chunk = 0;
         }
     } else {
-        log_error("SOUND: not initialized", 0, 0);
+        log_error("SOUND: not initialized, reason:", Mix_GetError(), 0);
     }
 }
 
